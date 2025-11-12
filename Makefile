@@ -19,7 +19,6 @@ clean:
 fclean:
 	@$(COMPOSE) down -v --rmi local || true
 	@rm -rf $(DATA_DIR)/wordpress $(DATA_DIR)/mariadb
-	#@rm -f srcs/.env
 
 re: fclean up
 

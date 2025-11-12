@@ -10,6 +10,9 @@ services:
     networks:
       - inception
     restart: unless-stopped
+    secrets:
+      - db_password
+      - db_root_password
     env_file:
       - .env
     healthcheck:
@@ -32,6 +35,9 @@ services:
       mariadb:
         condition: service_healthy
     restart: unless-stopped
+    secrets:
+      - db_password
+      - wp_admin_password
     env_file:
       - .env
 
@@ -72,3 +78,12 @@ networks:
   inception:
     name: inception
     driver: bridge
+
+
+secrets:
+  db_password:
+    file: ../secrets/db_password.txt
+  db_root_password:
+    file: ../secrets/db_root_password.txt
+  wp_admin_password:
+    file: ../secrets/wp_admin_password.txt
