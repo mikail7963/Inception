@@ -20,6 +20,10 @@ fclean:
 	@$(COMPOSE) down -v --rmi local || true
 	@rm -rf $(DATA_DIR)/wordpress $(DATA_DIR)/mariadb
 
+destroy: fclean
+	docker system prune -a
+
+
 re: fclean up
 
 .PHONY: all up down clean fclean re logs
