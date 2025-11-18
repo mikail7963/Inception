@@ -1,7 +1,7 @@
 
 services:
   mariadb:
-    image: mariadb
+    image: mariadb:v1
     container_name: mariadb
     build:
       context: ./requirements/mariadb
@@ -24,7 +24,7 @@ services:
       start_period: 30s
 
   wordpress:
-    image: wordpress
+    image: wordpress:v1
     container_name: wordpress
     build:
       context: ./requirements/wordpress
@@ -45,7 +45,7 @@ services:
       - .env
 
   nginx:
-    image: nginx
+    image: nginx:v1
     container_name: nginx
     build:
       context: ./requirements/nginx
